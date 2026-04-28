@@ -1,0 +1,40 @@
+# config/settings.yaml
+# TDA Supply Chain Anomaly Detection — Configuration
+
+pipeline:
+  tick_seconds: 30              # TDA computation frequency (seconds)
+  window_size: 30               # Baseline sliding window (number of diagrams)
+  warmup_steps: 20              # Steps before anomaly detection activates
+  max_event_queue: 100000       # Max buffered events before dropping
+
+tda:
+  max_dimension: 2              # Compute H0, H1, H2
+  use_witness_complex: false    # Enable for sparse (< 100 node) networks
+  n_landmarks: 50               # Landmarks for witness complex
+  max_edge_weight: 1.0          # Filtration threshold
+
+anomaly:
+  cusum_k: 0.5                  # CUSUM allowance parameter
+  cusum_h: 4.0                  # CUSUM decision threshold
+  target_fpr: 0.01              # Target false positive rate (1%)
+  wasserstein_dims: [0, 1, 2]   # Dimensions for multi-dim Wasserstein
+  wasserstein_weights: [0.2, 0.5, 0.3]
+
+redis:
+  host: localhost
+  port: 6379
+  graph_name: supply_chain
+  enabled: false                # Set true when Redis/FalkorDB is available
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["*"]
+
+logging:
+  level: INFO
+  file: tda_supply_chain.log
+
+visualization:
+  heatmap_refresh_seconds: 60
+  max_timeline_points: 1000

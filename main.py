@@ -127,7 +127,7 @@ def main():
     # api
     api_p = sub.add_parser("api", help="Start REST API server")
     api_p.add_argument("--host", default="0.0.0.0")
-    api_p.add_argument("--port", type=int, default=8000)
+    api_p.add_argument("--port", type=int, default=8001)
 
     # benchmark
     bench_p = sub.add_parser("benchmark", help="Run benchmarks")

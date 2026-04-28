@@ -12,7 +12,7 @@ Endpoints:
   POST /simulate          - Run a scenario simulation
   GET  /health            - Liveness probe
 
-Run with:  uvicorn src.api.rest_api:app --host 0.0.0.0 --port 8000
+Run with:  uvicorn src.api.rest_api:app --host 0.0.0.0 --port 8001
 """
 
 from __future__ import annotations
@@ -273,7 +273,7 @@ else:
             self.wfile.write(json.dumps({"error": "FastAPI not installed",
                                           "hint": "pip install fastapi uvicorn"}).encode())
 
-    def run_fallback(host="0.0.0.0", port=8000):
+    def run_fallback(host="0.0.0.0", port=8001):
         server = http.server.HTTPServer((host, port), FallbackHandler)
         server.serve_forever()
 

@@ -8,7 +8,7 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ## [Unreleased]
 
-## [1.0.0] — 2024-01-01
+## [1.0.0] — 2026-04-28
 
 ### Added
 - `DynamicFilteredComplex`: time-varying simplicial complex (0-, 1-, 2-skeleton) over supply-chain graph
@@ -39,5 +39,5 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ---
 
-[Unreleased]: https://github.com/your-org/tda-supply-chain/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/your-org/tda-supply-chain/releases/tag/v1.0.0
+[Unreleased]: https://github.com/Chege-N/tda-supply-chain/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Chege-N/tda-supply-chain/releases/tag/v1.0.0

@@ -137,12 +137,12 @@ Output: step-by-step console output + `demo_heatmap.html` (open in browser).
 ### 3. Start the REST API
 
 ```bash
-python main.py api --port 8000
+python main.py api --port 8001
 # or with Docker:
 docker-compose up
 ```
 
-API docs: http://localhost:8000/docs
+API docs: http://localhost:8001/docs
 
 ### 4. Run Benchmarks
 
@@ -177,7 +177,7 @@ python main.py generate-data --scenario customs_delay --n-normal 100 --n-disrupt
 ### Example: Ingest an Event
 
 ```bash
-curl -X POST http://localhost:8000/events \
+curl -X POST http://localhost:8001/events \
   -H "Content-Type: application/json" \
   -d '{
     "container_id": "MSCU1234567",
@@ -195,7 +195,7 @@ curl -X POST http://localhost:8000/events \
 ### Example: Run Suez Simulation
 
 ```bash
-curl -X POST http://localhost:8000/simulate \
+curl -X POST http://localhost:8001/simulate \
   -H "Content-Type: application/json" \
   -d '{"scenario": "suez_blockage", "n_steps": 60, "n_nodes": 40}'
 ```

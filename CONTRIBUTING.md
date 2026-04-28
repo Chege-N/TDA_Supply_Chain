@@ -7,7 +7,7 @@ Thank you for your interest in contributing. This guide covers the full developm
 ## Development Setup
 
 ```bash
-git clone https://github.com/your-org/tda-supply-chain.git
+git clone https://github.com/Chege-N/tda-supply-chain.git
 cd tda-supply-chain
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
@@ -115,7 +115,7 @@ If your PR changes the TDA algorithm (simplex construction, reduction, distance 
 
 ## Reporting Security Issues
 
-Do **not** open a public issue. Email `security@tda-supply-chain.io` with:
+Do **not** open a public issue. Email `chegenganga08@gmail,com` with:
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact

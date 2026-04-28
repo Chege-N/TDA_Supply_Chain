@@ -4,7 +4,7 @@ setup(
     name="tda_supply_chain",
     version="1.0.0",
     description="Real-time topological anomaly detection for global supply chains",
-    author="TDA Supply Chain Team",
+    author="Felix Chege N.",
     license="MIT",
     packages=find_packages(),
     python_requires=">=3.10",

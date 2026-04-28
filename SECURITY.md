@@ -10,7 +10,7 @@
 
 Please **do not** file a public GitHub issue for security vulnerabilities.
 
-Email **security@tda-supply-chain.io** with:
+Email **chegenganga08@gmail.com** with:
 - A description of the vulnerability
 - Steps to reproduce
 - Potential impact assessment

@@ -1,0 +1,78 @@
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+wheels/
+MANIFEST
+
+# ── Virtual environments ──────────────────────────────────────
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ── Testing / coverage ───────────────────────────────────────
+.tox/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
+
+# ── Type checkers ────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# ── Jupyter ──────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Node / docs builder ──────────────────────────────────────
+node_modules/
+npm-debug.log*
+
+# ── Logs & runtime ───────────────────────────────────────────
+*.log
+*.sqlite
+*.db
+
+# ── Generated outputs (reproducible, not committed) ──────────
+demo_heatmap.html
+benchmark_*.html
+benchmark_*.png
+synthetic_data.csv
+benchmark_results.json
+
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+._*
+Thumbs.db
+
+# ── IDE ──────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*~
+
+# ── Secrets ──────────────────────────────────────────────────
+.env.local
+secrets.yaml
+*.pem
+*.key
+
+# ── Docker volumes ───────────────────────────────────────────
+redis_data/
+
+# ── Archives ─────────────────────────────────────────────────
+*.tar.gz
+*.zip

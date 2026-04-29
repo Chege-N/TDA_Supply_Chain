@@ -24,8 +24,8 @@ RUN useradd -m -u 1001 appuser && chown -R appuser:appuser /app
 USER appuser
 
 # Health check (updated to port 7860)
-HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
-    CMD curl -f http://localhost:7860/health || exit 1
+#HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+  #  CMD curl -f http://localhost:7860/health || exit 1
 
 # Hugging Face Spaces expects port 7860
 EXPOSE 7860

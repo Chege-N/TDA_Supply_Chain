@@ -1,3 +1,13 @@
+---
+title: TDA Supply Chain Demo
+emoji: 📊
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+python_version: "3.10"
+app_file: app.py
+pinned: false
+---
 # TDA Supply Chain Anomaly Detection
 
 > **Real-time topological anomaly detection for global supply chains using persistent homology.**
@@ -121,7 +131,7 @@ Container GPS Events
 ### 1. Install
 
 ```bash
-git clone https://github.com/your-org/tda-supply-chain.git
+git clone https://github.com/Chege-N/tda-supply-chain.git
 cd tda-supply-chain
 pip install -r requirements.txt
 ```
@@ -303,6 +313,7 @@ result = ripser(point_cloud, maxdim=2)
 ```python
 import requests
 
+#Future work
 # Register a webhook callback
 def on_alert(alert):
     requests.post("https://your-erp.com/webhooks/supply-chain-alert",

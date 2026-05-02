@@ -311,13 +311,16 @@ class TopologicalAnomalyDetector:
     def _compute_severity(self, score: float, cusum: float,
                           betti_delta: Dict[int, int]) -> str:
         n_sigma = (score - self.baseline.mean) / (self.baseline.std + 1e-8)
-        betti_change = sum(abs(v) for v in betti_delta.values())
+        # Only count betti changes as severity signal when score is already elevated.
+        # During normal graph growth, betti numbers change naturally — that is not
+        # an anomaly. Betti weight kicks in only above 2σ.
+        betti_change = sum(abs(v) for v in betti_delta.values()) if n_sigma > 2.0 else 0
 
         if n_sigma > 6 or betti_change >= 5:
             return "critical"
         elif n_sigma > 4 or betti_change >= 3:
             return "high"
-        elif n_sigma > 2.5 or betti_change >= 1:
+        elif n_sigma > 2.5 or betti_change >= 2:
             return "medium"
         return "low"
 

@@ -264,29 +264,49 @@ Fraud ring:
 tda_supply_chain/
 ├── src/
 │   ├── core/
-│   │   ├── tda_engine.py          # Simplicial complex + persistent homology
-│   │   └── anomaly_detector.py    # Wasserstein scoring + CUSUM
+│   │   ├── tda_engine.py          # Persistent homology + simplicial complexes
+│   │   └── anomaly_detector.py    # Wasserstein scoring + CUSUM detection
 │   ├── streaming/
 │   │   └── pipeline.py            # Real-time streaming pipeline
 │   ├── api/
-│   │   └── rest_api.py            # FastAPI REST endpoints
+│   │   └── rest_api.py            # FastAPI endpoints (production-ready)
 │   ├── data_gen/
-│   │   └── synthetic_generator.py # Synthetic benchmark data
+│   │   └── synthetic_generator.py # Synthetic disruption scenarios
 │   └── visualization/
-│       └── visualizer.py          # Plots + HTML heatmap
-├── tests/
-│   └── test_tda_engine.py         # 35+ unit + integration tests
+│       └── visualizer.py          # Plots, persistence diagrams, heatmaps
+│
 ├── benchmarks/
-│   └── benchmark_runner.py        # Full benchmark suite
+│   └── benchmark_runner.py        # End-to-end performance benchmarks
+│
+├── tests/
+│   └── test_tda_engine.py         # 35+ unit & integration tests
+│
 ├── notebooks/
-│   └── demo_notebook.ipynb        # Interactive Jupyter demo
+│   └── demo_notebook.ipynb        # Interactive exploration & demos
+│
 ├── config/
-│   └── settings.yaml              # Configuration
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── main.py                        # CLI entry point
-└── README.md
+│   └── settings.yaml              # Centralized configuration
+│
+├── docs/
+│   └── TDD.md                    # Technical Design Document (v1.0)
+│
+├── .github/
+│   └── workflows/                # CI/CD pipelines (GitHub Actions)
+│
+├── app.py                        # Hugging Face Spaces entry point (Gradio)
+├── main.py                       # CLI entry point
+├── setup.py                      # Package configuration
+├── requirements.txt              # Dependencies
+├── Dockerfile                    # Container definition
+├── docker-compose.yml            # Multi-service orchestration
+│
+├── README.md                     # Main documentation
+├── README_HF.md                  # HF Spaces optimized README
+├── CHANGELOG.md                  # Version history
+├── CONTRIBUTING.md               # Contribution guidelines
+├── SECURITY.md                   # Security policy
+├── LICENSE                       # AGPL-3.0 license
+└── .gitignore
 ```
 
 ---

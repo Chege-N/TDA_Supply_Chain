@@ -168,7 +168,7 @@ class TopologicalAnomalyDetector:
                  window_size: int = 30,
                  warmup_steps: int = 20,
                  cusum_k: float = 0.5,
-                 cusum_h: float = 4.0):
+                 cusum_h: float = 6.0):   # raised from 4.0 → eliminates FP on low-variance normal scores
         self.baseline = SlidingWindowBaseline(window_size=window_size)
         self.cusum = CUSUMController(k=cusum_k, h=cusum_h)
         self.warmup_steps = warmup_steps
@@ -181,8 +181,9 @@ class TopologicalAnomalyDetector:
     def threshold(self) -> float:
         if self._threshold_override:
             return self._threshold_override
-        # 2.5-sigma dynamic threshold (~1% FPR for near-Gaussian scores)
-        return self.baseline.mean + 2.5 * self.baseline.std
+        # 3.5-sigma dynamic threshold — tighter than default to maintain FPR < 1%
+        # on normal scores that cluster tightly (0.005–0.03 range in practice)
+        return self.baseline.mean + 3.5 * self.baseline.std
 
     def step(self,
              diagram: PersistenceDiagram,

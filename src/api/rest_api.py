@@ -12,7 +12,7 @@ Endpoints:
   POST /simulate          - Run a scenario simulation
   GET  /health            - Liveness probe
 
-Run with:  uvicorn src.api.rest_api:app --host 0.0.0.0 --port 8001
+Run with:  uvicorn src.api.rest_api:app --host 0.0.0.0 --port 8000
 """
 
 from __future__ import annotations
@@ -231,14 +231,17 @@ if HAS_FASTAPI:
                     disrupted=disrupted,
                     scenario=config.scenario,
                 )
+                # Process all events for this step; keep only the final alert
+                last_alert = None
                 for event in events:
-                    alert = pipe_sim.process_sync(event)
-                    if alert:
-                        timeline.append({
-                            "step": step,
-                            "disrupted": disrupted,
-                            **alert.to_dict(),
-                        })
+                    last_alert = pipe_sim.process_sync(event)
+                # One timeline entry per step (not per event)
+                if last_alert:
+                    timeline.append({
+                        "step": step,
+                        "disrupted": disrupted,
+                        **last_alert.to_dict(),
+                    })
 
             return {
                 "scenario": config.scenario,
@@ -273,7 +276,7 @@ else:
             self.wfile.write(json.dumps({"error": "FastAPI not installed",
                                           "hint": "pip install fastapi uvicorn"}).encode())
 
-    def run_fallback(host="0.0.0.0", port=8001):
+    def run_fallback(host="0.0.0.0", port=8000):
         server = http.server.HTTPServer((host, port), FallbackHandler)
         server.serve_forever()
 
